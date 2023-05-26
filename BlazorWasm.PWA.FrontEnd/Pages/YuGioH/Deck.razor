@@ -1,0 +1,30 @@
+﻿@page "/Deck"
+@inject IRepository<YuGioH> yugiRepo
+
+<h1>Deck</h1>
+
+@if (ListaCards != null)
+{
+    @foreach (YuGioH yuGioH in ListaCards)
+    {
+        <h2> @yuGioH.Nome </h2>
+        <br>
+        <img src="@yuGioH.ImgUrl" style="width: 400px;" />
+    }
+
+}
+
+@code {
+    List<YuGioH>? ListaCards = null;
+
+    //Executa ao Inicializar O ComponenteGrafico
+    protected override async Task OnInitializedAsync()
+    {
+        //Pegar Lista de Pokemons DO Banco de Dados
+        //Via chamada de API (chamanda encapsulada no Repositoty)
+        ListaCards = await yugiRepo.Get();
+    }
+
+
+
+}
