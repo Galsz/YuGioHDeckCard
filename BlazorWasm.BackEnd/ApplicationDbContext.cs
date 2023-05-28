@@ -11,8 +11,6 @@ namespace BlazorWasmServer.Server
 {
     public class ApplicationDbContext: DbContext    {
 
-        public DbSet<Categoria> Categorias { get; set; }
-        public DbSet<Produto> Produtos { get; set; }
         public DbSet<YuGioH> Cards { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)

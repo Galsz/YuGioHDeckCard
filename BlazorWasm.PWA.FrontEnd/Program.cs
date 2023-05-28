@@ -23,8 +23,6 @@ await builder.Build().RunAsync();
     services.AddScoped<IHttpService, HttpService>();
 
     //ATivar Repositorio Verdadeiro (no SGBD)
-    services.AddTransient<IRepository<Categoria>, CategoriaRepository>();
-    services.AddTransient<IRepository<Produto>, ProdutoRepository>();
     services.AddTransient <IRepository<YuGioH>, YuGioHRepository>();
 
     //ATIVAR Repositorio em Memoria (Fake)
