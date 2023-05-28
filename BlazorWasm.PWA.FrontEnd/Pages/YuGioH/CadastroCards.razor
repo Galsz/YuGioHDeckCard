@@ -3,17 +3,41 @@
 
 <h3>CadastroCards</h3>
 
+<form>
+    <div class="form-login justify-content-center">
+        <div class="d-block">
+            <label>Nome:</label>
+            <input name="name_cadastro" type="text" @bind=yuGioH.Nome class="form-control" />
+        </div>
 
-<p>Nome:</p>
-<input type="text" @bind=yuGioH.Nome /> 
-<p>Tipo:</p>
-<input type="text" @bind=yuGioH.Tipo /> 
-<p>Pontos de Defesa:</p>
-<input type="text" @bind=yuGioH.DEF /> 
-<p>Pontos de Ataque:</p>
-<input type="number" @bind=yuGioH.ATK /> 
-<InputImg Label="Imagem" OnSelectedImage="ImagemSelecionada" ImageURL="@imageURL" ></InputImg>
-<button @onclick=CadastrarCards> Cadastrar </button>
+        <div class="d-block">
+            <label>Tipo:</label>
+            <input name="tipo_cadastro" type="text" @bind=yuGioH.Tipo class="form-control" />
+        </div>
+
+        <div class="d-block">
+            <label>Pontos de Defesa:</label>
+            <input name="def_cadastro" type="text" @bind=yuGioH.DEF class="form-control" />
+        </div>
+
+        <div class="d-block">
+            <label>Pontos de Ataque:</label>
+            <input name="atk_cadastro" type="text" @bind=yuGioH.ATK class="form-control" />
+        </div>
+        <br />
+
+        <div class="custom-file">
+            <InputImg Label="Imagem" OnSelectedImage="ImagemSelecionada" ImageURL="@imageURL"></InputImg>
+        </div>
+
+        <br />
+
+        <button @onclick=CadastrarCards class="btn btn-primary bt-cadastro"> Cadastrar </button>
+
+    </div>
+</form>
+
+
 
 @code {
     YuGioH yuGioH = new YuGioH();
