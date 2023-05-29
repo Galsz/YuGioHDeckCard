@@ -5,19 +5,19 @@
     </div>
 </div>
 
-<div>
+<div class="div-imagem">
     @if (imageBase64 != null)
     {
 <div>
     <div style="margin:10px">
-        <img src="data:image/jpeg;base64, @imageBase64" style="width: 400px;" />
+        <img src="data:image/jpeg;base64, @imageBase64" style="width: 350px; max-width: 350px;" />
     </div>
 </div>}
     @if (ImageURL != null)
     {
 <div>
     <div style="margin:10px">
-        <img src="@ImageURL" style="width: 400px;" />
+        <img src="@ImageURL" style="width: 350px; max-width: 350px;" />
     </div>
 </div>}
 </div>
