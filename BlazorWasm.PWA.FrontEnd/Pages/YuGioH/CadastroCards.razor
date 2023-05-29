@@ -6,38 +6,55 @@
 <form>
     <div class="justify-content-center">
 
+       
+
         <div class="d-inline-block template">
 
-            @*<img class="card-img" src="data:image/jpeg;base64, @imgB64" />*@
+            <div class="img-box">
+                @if(imgB64 != null)
+                {
+                   <img class="card-img" src="data:image/jpeg;base64, @imgB64" /> 
+                }
+            </div>
+            
 
             <img class="card-template " src="img/card-template/template.png" />
 
             <div class="card-infos">
-                @if (yuGioH.Nome == "" ){
+                @if (yuGioH.Nome == null){
                     <p class="card-name">Nome</p>
                 } else
                 {
                     <p class="card-name">@yuGioH.Nome</p>
                 }
                 <p class="card-type">[ @yuGioH.Tipo ]</p>
-                @*<p class="card-desc">@yuGioH.Desc</p>*@
                 <p class="card-atk">@yuGioH.ATK</p>
                 <p class="card-def">@yuGioH.DEF</p>
-
                 <div class="card-stars">
-                    <img class="d-inline-block star-1" src="img/card-template/star.png" />
-                    <img class="d-inline-block star-2" src="img/card-template/star.png" />
-                    <img class="d-inline-block star-3" src="img/card-template/star.png" />
-                    <img class="d-inline-block star-4" src="img/card-template/star.png" />
-                    <img class="d-inline-block star-5" src="img/card-template/star.png" />
-                    <img class="d-inline-block star-6" src="img/card-template/star.png" />
-                    <img class="d-inline-block star-7" src="img/card-template/star.png" />
-                    <img class="d-inline-block star-8" src="img/card-template/star.png" />
-                    <img class="d-inline-block star-9" src="img/card-template/star.png" />
-                    <img class="d-inline-block star-10" src="img/card-template/star.png" />
-                    <img class="d-inline-block star-11" src="img/card-template/star.png" />
-                    <img class="d-inline-block star-12" src="img/card-template/star.png" />
+                    <img class="d-inline-block star-1" src="img/card-template/star.png"/>
+                    <img class="d-inline-block star-2" src="img/card-template/star.png"/>
+                    <img class="d-inline-block star-3" src="img/card-template/star.png"/>
+                    <img class="d-inline-block star-4" src="img/card-template/star.png"/>
+                    <img class="d-inline-block star-5" src="img/card-template/star.png"/>
+                    <img class="d-inline-block star-6" src="img/card-template/star.png"/>
+                    <img class="d-inline-block star-7" src="img/card-template/star.png"/>
+                    <img class="d-inline-block star-8" src="img/card-template/star.png"/>
+                    <img class="d-inline-block star-9" src="img/card-template/star.png"/>
+                    <img class="d-inline-block star-10" src="img/card-template/star.png"/>
+                    <img class="d-inline-block star-11" src="img/card-template/star.png"/>
+                    <img class="d-inline-block star-12" src="img/card-template/star.png"/>
                 </div>
+                <div class="d-block desc-box">
+                    @if (yuGioH.Description == null)
+                    {
+                        <p class="card-desc">Descrição</p>
+                    }
+                    else
+                    {
+                        <p class="card-desc">@yuGioH.Description</p>
+                    } 
+                </div>
+
             </div>
 
         </div>
@@ -50,7 +67,17 @@
 
             <div class="d-block">
                 <label>Tipo:</label>
-                <input name="tipo_cadastro" type="text" @bind=yuGioH.Tipo class="form-control" />
+                <input name="tipo_cadastro" type="text" maxlength="20" @bind=yuGioH.Tipo class="form-control" />
+            </div>
+
+            <div class="d-block">
+                <label>Descrição:</label>
+                <textarea name="desc_cadastro" rows="3" maxlength="100" @bind=yuGioH.Description class="form-control"></textarea>
+            </div>
+
+            <div class="d-block">
+                <label>Level:</label>
+                <input name="lvl_cadastro" type="number" min="0" max="12" @bind=yuGioH.Level class="form-control"/>
             </div>
 
             <div class="d-block">
@@ -63,10 +90,6 @@
                 <input name="atk_cadastro" type="number" min="1" max="9999" @bind=yuGioH.ATK class="form-control" />
             </div>
 
-        @* <div class="d-block">
-                <label>Descrição:</label>
-                <input name="desc_cadastro" type="text" @bind=yuGioH.Desc class="form-control" />
-            </div>*@
             <br />
 
             <div class="custom-file">

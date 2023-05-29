@@ -15,7 +15,7 @@ namespace BlazorWasm.Compartilhado.Entidades
         public int Level { get; set; }
         public int ATK { get; set; }
         public int DEF { get; set; }
-        public string Descripiton { get; set; }
+        public string Description { get; set; }
         public string ImgUrl { get; set; }
     }
 }

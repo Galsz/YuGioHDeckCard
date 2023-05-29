@@ -28,7 +28,7 @@ namespace BlazorWasm.BackEnd.Migrations
                     b.Property<int>("DEF")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Descripiton")
+                    b.Property<string>("Description")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ImgUrl")

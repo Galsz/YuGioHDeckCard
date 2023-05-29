@@ -19,7 +19,7 @@ namespace BlazorWasm.BackEnd.Migrations
                     Level = table.Column<int>(type: "INTEGER", nullable: false),
                     ATK = table.Column<int>(type: "INTEGER", nullable: false),
                     DEF = table.Column<int>(type: "INTEGER", nullable: false),
-                    Descripiton = table.Column<string>(type: "TEXT", nullable: true),
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
                     ImgUrl = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
