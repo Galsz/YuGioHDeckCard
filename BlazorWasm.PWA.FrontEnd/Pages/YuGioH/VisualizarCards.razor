@@ -1,23 +1,16 @@
 ﻿@page "/visualizarCards"
 @layout BlankLayout
 @inject IRepository<YuGioH> yugiRepo
-<h3>VisualizarPokemon</h3>
+
+<h3>Visualizar Carta</h3>
+
+<div class="justify-content-center" style="width: 100%; text-align: center;">
 @if (cardAtual != null)
 {
-    <p>Id: @cardAtual.Id</p>
-    <br>
-    <p>Nome: @cardAtual.Nome</p>
-    <br>
-    <img src="@cardAtual.ImgUrl" style="width:200px" />
-    <br>
-    <p>Tipo: @cardAtual.Tipo</p>
-    <br>
-    <p>Golpe Principal: @cardAtual.DEF</p>
-    <br>
-    <p>Forca: @cardAtual.ATK </p>
-    <br>
-    <br>
-
+    
+    <TemplateCard Card=@cardAtual />
+    
+    <div class="buttons">
     @if (idAtual > 1)
     {
         <button @onclick=IrParaAnterior> Anterior</button>
@@ -27,15 +20,13 @@
     {
         <button @onclick=IrParaProximo> Proximo </button>
     }
-
+    </div>
 }
 else
 {
     <h2>Carregando</h2>
 }
-
-
-
+</div>
 
 @code {
     YuGioH? cardAtual = null;
@@ -51,10 +42,10 @@ else
     public async void IrParaAnterior()
     {
         idAtual--;
-        Console.WriteLine("Requisitando Pokemon: " + idAtual);
+        Console.WriteLine("Requisitando carta: " + idAtual);
         cardAtual = null;
         cardAtual = await yugiRepo.Get(idAtual);
-        Console.WriteLine("Pokemon Encontrado ");
+        Console.WriteLine("Carta encontrada!");
         StateHasChanged();
 
     }
@@ -65,7 +56,7 @@ else
         Console.WriteLine("Requisitando Pokemon: " + idAtual);
         cardAtual = null;
         cardAtual = await yugiRepo.Get(idAtual);
-        Console.WriteLine("Pokemon Encontrado ");
+        Console.WriteLine("Carta encontrada!");
         StateHasChanged();
 
     }

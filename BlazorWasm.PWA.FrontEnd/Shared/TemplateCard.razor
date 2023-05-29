@@ -1,0 +1,149 @@
+﻿<div class="d-inline-block template">
+
+    <div class="img-box">
+        @if (Card.ImgUrl != null)
+        {
+            <img class="card-img" src="@Card.ImgUrl" />
+        }
+    </div>
+
+
+    <img class="card-template " src="img/card-template/template.png" />
+
+    <div class="card-infos">
+        @if (Card.Nome == null)
+        {
+            <p class="card-name">Nome</p>
+        }
+        else
+        {
+            <p class="card-name">@Card.Nome</p>
+        }
+        <p class="card-type">[ @Card.Tipo ]</p>
+        <p class="card-atk">@Card.ATK</p>
+        <p class="card-def">@Card.DEF</p>
+        <div class="card-stars">
+            <img class="d-inline-block star-1" src="img/card-template/star.png" />
+            <img class="d-inline-block star-2" src="img/card-template/star.png" />
+            <img class="d-inline-block star-3" src="img/card-template/star.png" />
+            <img class="d-inline-block star-4" src="img/card-template/star.png" />
+            <img class="d-inline-block star-5" src="img/card-template/star.png" />
+            <img class="d-inline-block star-6" src="img/card-template/star.png" />
+            <img class="d-inline-block star-7" src="img/card-template/star.png" />
+            <img class="d-inline-block star-8" src="img/card-template/star.png" />
+            <img class="d-inline-block star-9" src="img/card-template/star.png" />
+            <img class="d-inline-block star-10" src="img/card-template/star.png" />
+            <img class="d-inline-block star-11" src="img/card-template/star.png" />
+            <img class="d-inline-block star-12" src="img/card-template/star.png" />
+        </div>
+        <div class="d-block desc-box">
+            @if (Card.Description == null)
+            {
+                <p class="card-desc">Descrição</p>
+            }
+            else
+            {
+                <p class="card-desc">@Card.Description</p>
+            }
+        </div>
+
+    </div>
+
+</div>
+
+<style>
+    .template {
+        width: 421px;
+        text-align: left;
+        position: relative;
+        top: -20rem;
+        z-index: 10;
+    }
+
+    .card-template {
+        width: 421px;
+        height: auto;
+    }
+
+    .card-infos {
+        position: relative;
+        top: -48.5rem;
+    }
+
+    .card-name {
+        position: relative;
+        top: 12.3rem;
+        left: 2rem;
+        text-transform: uppercase;
+        font-size: 18px;
+        text-align: left;
+    }
+
+    .card-stars > img {
+        display: inline-block;
+        width: 24px;
+        height: auto;
+    }
+
+    .card-stars {
+        position: relative;
+        top: 4.5rem;
+        text-align: center;
+    }
+
+    .cardform {
+        vertical-align: top;
+    }
+
+    .card-atk {
+        position: relative;
+        left: 16.7rem;
+        top: 39.9rem;
+        width: 10%;
+    }
+
+    .card-def {
+        position: relative;
+        left: 22rem;
+        top: 37.4rem;
+        width: 10%;
+    }
+
+    .card-type {
+        position: relative;
+        top: 36.5rem;
+        left: 2rem;
+    }
+
+    .img-box {
+        width: 328px;
+        height: 326px;
+        position: relative;
+        top: 27.2rem;
+        left: 4rem;
+        z-index: -1;
+    }
+
+    .card-img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .desc-box {
+        width: 22.5rem;
+        word-break: break-all;
+    }
+
+    .card-desc {
+        white-space: break-spaces;
+        font-size: 16px;
+        position: relative;
+        top: 29rem;
+        left: 2rem;
+    }
+</style>
+
+@code {
+    [Parameter] public YuGioH? Card { set; get; }
+
+}

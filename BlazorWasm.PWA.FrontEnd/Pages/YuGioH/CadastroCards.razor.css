@@ -1,9 +1,6 @@
-﻿body {
-    background-color: #1f6feb
-}
-
-.template {
+﻿.template {
     width: 421px;
+    text-align: left;
 }
 
 .card-template {
