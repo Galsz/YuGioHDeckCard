@@ -22,7 +22,6 @@ namespace BlazorWasmServer.Server.Controllers
         {
             this.context = context;
             _fileStorageService = fileStorageService;
-
         }
 
         #region Teste
