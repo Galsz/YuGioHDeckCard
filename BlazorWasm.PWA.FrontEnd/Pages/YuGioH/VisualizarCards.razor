@@ -1,8 +1,6 @@
 ﻿@page "/visualizarCards"
-@layout BlankLayout
 @inject IRepository<YuGioH> yugiRepo
 
-<h3>Visualizar Carta</h3>
 
 <div class="justify-content-center" style="width: 100%; text-align: center;">
 @if (cardAtual != null)
@@ -13,12 +11,12 @@
     <div class="buttons">
     @if (idAtual > 1)
     {
-        <button @onclick=IrParaAnterior> Anterior</button>
+        <button type="button" class="btn btn-secondary" @onclick=IrParaAnterior> Anterior</button>
     }
 
     @if (idAtual < idMax)
     {
-        <button @onclick=IrParaProximo> Proximo </button>
+        <button type="button" class="btn btn-primary" @onclick=IrParaProximo> Proximo </button>
     }
     </div>
 }

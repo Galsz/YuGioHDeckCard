@@ -1,1 +1,6 @@
-
+.page {
+    background: url(img/home-back/RUSH_CardBack.png) no-repeat;
+    background-size: cover;
+    backdrop-filter: blur(2);
+    height:100%;
+}
