@@ -1,25 +1,46 @@
-﻿@page "/visualizarCards"
-@inject IRepository<YuGioH> yugiRepo
-
-
-<div class="justify-content-center" style="width: 100%; text-align: center;">
+﻿@page "/visualizar-cartas"
+@layout BlankLayout
+<h3>VisualizarPokemon</h3>
+<h3>VisualizarPokemon</h3>
 @if (cardAtual != null)
-{
-    
+    <p>Id: @cardAtual.Id</p>
+    <br>
+    <p>Nome: @cardAtual.Nome</p>
+    <br>
+    <img src="@cardAtual.ImgUrl" style="width:200px" />
+    <br>
+    <p>Tipo: @cardAtual.Tipo</p>
+    <br>
+    <p>Golpe Principal: @cardAtual.DEF</p>
+    @if (idAtual < idMax)
+    {
+        <button @onclick=IrParaProximo> Proximo </button>
+    }
+
+    }
+    <br>
+        @if (idAtual < idMax)
+        {
+            <button @onclick=IrParaProximo> Proximo </button>
+
+
+
+    </div>
+
     <TemplateCard Card=@cardAtual />
-    
-    <div class="buttons">
+
+
     @if (idAtual > 1)
     {
-        <button type="button" class="btn btn-secondary" @onclick=IrParaAnterior> Anterior</button>
+        <button @onclick=IrParaAnterior> Anterior</button>
     }
 
     @if (idAtual < idMax)
     {
-        <button type="button" class="btn btn-primary" @onclick=IrParaProximo> Proximo </button>
+        <button @onclick=IrParaProximo> Proximo </button>
     }
-    </div>
-}
+
+        Console.WriteLine("Requisitando carta: " + idAtual);
 else
 {
     <h2>Carregando</h2>
