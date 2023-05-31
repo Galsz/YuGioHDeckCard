@@ -13,6 +13,9 @@
     <link href="manifest.json" rel="manifest" />
     <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
     <link rel="apple-touch-icon" sizes="192x192" href="icon-192.png" />
+    <script>
+        window.BASE_URL = window.location.origin;
+    </script>
 </head>
 
 <body>
@@ -24,8 +27,15 @@
         <a class="dismiss">🗙</a>
     </div>
     <script src="_framework/blazor.webassembly.js"></script>
-    <script src="js/MyJavaScript.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script type="text/javascript" src="js/node_modules/@pnotify/core/dist/PNotify.js"></script>
+    <link href="js/node_modules/@pnotify/core/dist/PNotify.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/node_modules/@pnotify/mobile/dist/PNotifyMobile.js"></script>
+    <link href="js/node_modules/@pnotify/mobile/dist/PNotifyMobile.css" rel="stylesheet" type="text/css" />
     <script>navigator.serviceWorker.register('service-worker.js');</script>
+
 </body>
 
 </html>

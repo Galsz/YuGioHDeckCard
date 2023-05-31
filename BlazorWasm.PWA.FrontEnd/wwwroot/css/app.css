@@ -1,7 +1,27 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+@font-face {
+    font-family: matrixFont;
+    src: url('../fonts/matrix-regular.ttf') format('truetype');
+}
+
+.bootstrap3-error {
+    background: lightcoral;
+    border-radius: 1rem;
+    color: white;
+    font-size: 24px;
+}
+
+.bootstrap3-success {
+    background:lightgreen;
+    border-radius: 1rem;
+    color: white;
+    font-size: 24px;
+}
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: white;
 }
 
 h1:focus {
@@ -62,3 +82,16 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+body {
+    background: url(../img/home-back/tablecardsbg.jpg);
+    height: 100%;
+}
+
+.page {
+    background: none;
+}
+
+.main {
+    backdrop-filter: blur(3px);
+}

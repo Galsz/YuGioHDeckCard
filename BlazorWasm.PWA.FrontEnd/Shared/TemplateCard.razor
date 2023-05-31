@@ -23,18 +23,18 @@
         <p class="card-atk">@Card.ATK</p>
         <p class="card-def">@Card.DEF</p>
         <div class="card-stars">
-            <img class="d-inline-block star-1" src="img/card-template/star.png" />
-            <img class="d-inline-block star-2" src="img/card-template/star.png" />
-            <img class="d-inline-block star-3" src="img/card-template/star.png" />
-            <img class="d-inline-block star-4" src="img/card-template/star.png" />
-            <img class="d-inline-block star-5" src="img/card-template/star.png" />
-            <img class="d-inline-block star-6" src="img/card-template/star.png" />
-            <img class="d-inline-block star-7" src="img/card-template/star.png" />
-            <img class="d-inline-block star-8" src="img/card-template/star.png" />
-            <img class="d-inline-block star-9" src="img/card-template/star.png" />
-            <img class="d-inline-block star-10" src="img/card-template/star.png" />
-            <img class="d-inline-block star-11" src="img/card-template/star.png" />
-            <img class="d-inline-block star-12" src="img/card-template/star.png" />
+            <img style="@estiloStar1" class="stars star-1" src="img/card-template/star.png" />
+            <img style="@estiloStar2" class="stars star-2" src="img/card-template/star.png" />
+            <img style="@estiloStar3" class="stars star-3" src="img/card-template/star.png" />
+            <img style="@estiloStar4" class="stars star-4" src="img/card-template/star.png" />
+            <img style="@estiloStar5" class="stars star-5" src="img/card-template/star.png" />
+            <img style="@estiloStar6" class="stars star-6" src="img/card-template/star.png" />
+            <img style="@estiloStar7" class="stars star-7" src="img/card-template/star.png" />
+            <img style="@estiloStar8" class="stars star-8" src="img/card-template/star.png" />
+            <img style="@estiloStar9" class="stars star-9" src="img/card-template/star.png" />
+            <img style="@estiloStar10" class="stars star-10" src="img/card-template/star.png" />
+            <img style="@estiloStar11" class="stars star-11" src="img/card-template/star.png" />
+            <img style="@estiloStar12" class="stars star-12" src="img/card-template/star.png" />
         </div>
         <div class="d-block desc-box">
             @if (Card.Description == null)
@@ -54,10 +54,12 @@
 <style>
     .template {
         width: 421px;
+        height: 614px;
         text-align: left;
         position: relative;
         top: -20rem;
         z-index: 10;
+        color: black;
     }
 
     .card-template {
@@ -75,8 +77,9 @@
         top: 12.3rem;
         left: 2rem;
         text-transform: uppercase;
-        font-size: 18px;
+        font-size: 20px;
         text-align: left;
+        font-weight: bold;
     }
 
     .card-stars > img {
@@ -98,14 +101,14 @@
     .card-atk {
         position: relative;
         left: 16.7rem;
-        top: 39.9rem;
+        top: 39.7rem;
         width: 10%;
     }
 
     .card-def {
         position: relative;
         left: 22rem;
-        top: 37.4rem;
+        top: 37.2rem;
         width: 10%;
     }
 
@@ -113,6 +116,7 @@
         position: relative;
         top: 36.5rem;
         left: 2rem;
+        font-weight: bold;
     }
 
     .img-box {
@@ -120,8 +124,8 @@
         height: 326px;
         position: relative;
         top: 27.2rem;
-        left: 4rem;
-        z-index: -1;
+        left: 3rem;
+        z-index: 0;
     }
 
     .card-img {
@@ -144,6 +148,114 @@
 </style>
 
 @code {
+
     [Parameter] public YuGioH? Card { set; get; }
+
+    string estiloStar1, estiloStar2, estiloStar3,
+    estiloStar4, estiloStar5, estiloStar6,
+    estiloStar7, estiloStar8, estiloStar9,
+    estiloStar10, estiloStar11, estiloStar12;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(Card.Level != null)
+        {
+            estiloStar1 = estiloStar2 = estiloStar3 =
+            estiloStar4 = estiloStar5 = estiloStar6 =
+            estiloStar7 = estiloStar8 = estiloStar9 =
+            estiloStar10 = estiloStar11 = estiloStar12 = "visibility: visible";
+
+            switch (Card.Level)
+            {
+                case 0:
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 =
+                    estiloStar7 = estiloStar8 = estiloStar9 =
+                    estiloStar10 = estiloStar11 = estiloStar12 = "visibility: hidden";
+                    break;
+
+                case 1:
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 =
+                    estiloStar7 = estiloStar8 = estiloStar9 =
+                    estiloStar10 = estiloStar11 = "visibility: hidden";
+                    break;
+
+                case 2:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 =
+                    estiloStar7 = estiloStar8 = estiloStar9 =
+                    estiloStar10 = "visibility: hidden";
+
+                    break;
+                case 3:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 =
+                    estiloStar7 = estiloStar8 = estiloStar9 = "visibility: hidden";
+
+                    break;
+                case 4:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 =
+                    estiloStar7 = estiloStar8 = "visibility: hidden";
+
+                    break;
+                case 5:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 =
+                    estiloStar7 = "visibility: hidden";
+
+                    break;
+                case 6:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 = "visibility: hidden";
+
+                    break;
+                case 7:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = "visibility: hidden";
+
+                    break;
+                case 8:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = "visibility: hidden";
+
+                    break;
+                case 9:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 = "visibility: hidden";
+
+                    break;
+
+                case 10:
+
+                    estiloStar1 = estiloStar2 = "visibility: hidden";
+
+                    break;
+
+                case 11:
+
+                    estiloStar1 = "visibility: hidden";
+
+                    break;
+
+                case 12:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 =
+                    estiloStar7 = estiloStar8 = estiloStar9 =
+                    estiloStar10 = estiloStar11 = estiloStar12 = "visibility: visible";
+
+                    break;
+            }
+        }
+    }
 
 }

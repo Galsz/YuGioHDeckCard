@@ -1,6 +1,11 @@
 ﻿.template {
     width: 421px;
+    height: 614px;
     text-align: left;
+    font-family: matrixFont;
+    margin-right: 1rem;
+    margin-top: -20rem;
+    color: black;
 }
 
 .card-template {
@@ -10,19 +15,19 @@
 
 .card-infos {
     position: relative;
-    top: -48.5rem;
+    top: -49.5rem;
 }
 
 .card-name {
     position: relative;
-    top: 12.3rem;
+    top: 12rem;
     left: 2rem;
     text-transform: uppercase;
-    font-size: 18px;
+    font-size: 40px;
     text-align: left;
 }
 
-.card-stars > img{
+.card-stars > img {
     display: inline-block;
     width: 24px;
     height: auto;
@@ -30,40 +35,48 @@
 
 .card-stars {
     position: relative;
-    top: 4.5rem;
+    top: 2.3rem;
     text-align: center;
 }
 
 .cardform {
     vertical-align: top;
+    margin-left: 1rem;
+    text-align: left;
 }
 
 .card-atk {
     position: relative;
     left: 16.7rem;
-    top: 39.9rem;
+    font-size: 22px;
+    top: 38.4rem;
     width: 10%;
+    font-weight: bold;
 }
 
 .card-def {
     position: relative;
     left: 22rem;
-    top: 37.4rem;
+    top: 35.35rem;
     width: 10%;
+    font-size: 22px;
+    font-weight: bold;
 }
 
 .card-type {
     position: relative;
-    top: 36.5rem;
+    top: 35.5rem;
     left: 2rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .img-box {
     width: 328px;
     height: 326px;
-    position: absolute;
-    top: 14rem;
-    left: 20.5rem;
+    position: relative;
+    top: 27.3rem;
+    left: 3rem;
     z-index: -10;
 }
 
@@ -79,9 +92,38 @@
 
 .card-desc {
     white-space: break-spaces;
-    font-size: 16px;
+    font-size: 20px;
     position: relative;
-    top: 29rem;
+    top: 26.1rem;
     left: 2rem;
+}
+
+.logo-title {
+    font-family: matrixFont;
+    font-size: 52px;
+}
+
+.logo-title > h1 {
+    position: relative;
+    top: -2.5rem;
+    left: 4rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+input, textarea {
+    background: #1c1c1c;
+    color: white;
+}
+
+.bt-cadastro {
+    color: #000;
+    background-color: #c2ae73;
+    border-color: #b54225;
+}
+
+.bt-download {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
 }
 

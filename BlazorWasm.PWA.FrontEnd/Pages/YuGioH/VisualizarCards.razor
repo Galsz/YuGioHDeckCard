@@ -1,24 +1,24 @@
-﻿@page "/visualizarCards"
+﻿@page "/visualizar-cartas"
 @inject IRepository<YuGioH> yugiRepo
 
 
 <div class="justify-content-center" style="width: 100%; text-align: center;">
 @if (cardAtual != null)
 {
-    
+    <div class="buttons" style="position: relative; z-index: 11;">
+        @if (idAtual > 1)
+        {
+            <button type="button" class="btn btn-secondary" @onclick=IrParaAnterior> Anterior</button>
+        }
+
+        @if (idAtual < idMax)
+        {
+            <button type="button" class="btn btn-primary" @onclick=IrParaProximo> Proximo </button>
+        }
+    </div>
+
     <TemplateCard Card=@cardAtual />
     
-    <div class="buttons">
-    @if (idAtual > 1)
-    {
-        <button type="button" class="btn btn-secondary" @onclick=IrParaAnterior> Anterior</button>
-    }
-
-    @if (idAtual < idMax)
-    {
-        <button type="button" class="btn btn-primary" @onclick=IrParaProximo> Proximo </button>
-    }
-    </div>
 }
 else
 {
@@ -51,7 +51,7 @@ else
     public async void IrParaProximo()
     {
         idAtual++;
-        Console.WriteLine("Requisitando Pokemon: " + idAtual);
+        Console.WriteLine("Requisitando Cartas: " + idAtual);
         cardAtual = null;
         cardAtual = await yugiRepo.Get(idAtual);
         Console.WriteLine("Carta encontrada!");
