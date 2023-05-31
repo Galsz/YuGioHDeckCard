@@ -1,112 +1,117 @@
-﻿@page "/"
+﻿@page "/cadastrar-cartas"
 @inject IRepository<YuGioH> yugiRepo
+@inject IJSRuntime JS
 
 <h3>CadastroCards</h3>
 
-<form>
-    <div class="justify-content-center">
+<div class="justify-content-center">
 
-        <div class="d-inline-block template">
+    <div class="d-inline-block template" id="template">
 
-            <div class="img-box">
-                @if(imgB64 != null)
-                {
-                   <img class="card-img" src="data:image/jpeg;base64, @imgB64" /> 
-                }
-            </div>
-            
-
-            <img class="card-template " src="img/card-template/template.png" />
-
-            <div class="card-infos">
-                @if (yuGioH.Nome == null){
-                    <p class="card-name">Nome</p>
-                } else
-                {
-                    <p class="card-name">@yuGioH.Nome</p>
-                }
-                <p class="card-type">[ @yuGioH.Tipo ]</p>
-                <p class="card-atk">@yuGioH.ATK</p>
-                <p class="card-def">@yuGioH.DEF</p>
-                <div class="card-stars">
-                    <img class="d-inline-block star-1" src="img/card-template/star.png"/>
-                    <img class="d-inline-block star-2" src="img/card-template/star.png"/>
-                    <img class="d-inline-block star-3" src="img/card-template/star.png"/>
-                    <img class="d-inline-block star-4" src="img/card-template/star.png"/>
-                    <img class="d-inline-block star-5" src="img/card-template/star.png"/>
-                    <img class="d-inline-block star-6" src="img/card-template/star.png"/>
-                    <img class="d-inline-block star-7" src="img/card-template/star.png"/>
-                    <img class="d-inline-block star-8" src="img/card-template/star.png"/>
-                    <img class="d-inline-block star-9" src="img/card-template/star.png"/>
-                    <img class="d-inline-block star-10" src="img/card-template/star.png"/>
-                    <img class="d-inline-block star-11" src="img/card-template/star.png"/>
-                    <img class="d-inline-block star-12" src="img/card-template/star.png"/>
-                </div>
-                <div class="d-block desc-box">
-                    @if (yuGioH.Description == null)
-                    {
-                        <p class="card-desc">Descrição</p>
-                    }
-                    else
-                    {
-                        <p class="card-desc">@yuGioH.Description</p>
-                    } 
-                </div>
-
-            </div>
-
+        <div class="img-box">
+            @if(imgB64 != null)
+            {
+                <img class="card-img" src="data:image/jpeg;base64, @imgB64" /> 
+            }
         </div>
-        <div class="cardform d-inline-block">
+            
+        <img class="card-template " src="img/card-template/template.png" />
 
-            <div class="d-block">
-                <label>Nome:</label>
-                <input name="name_cadastro" type="text" minlength="1" maxlength="36" @bind=yuGioH.Nome class="form-control" />
+        <div class="card-infos">
+            @if (yuGioH.Nome == null){
+                <p class="card-name">Nome</p>
+            } else
+            {
+                <p class="card-name">@yuGioH.Nome</p>
+            }
+            <p class="card-type">[ @yuGioH.Tipo ]</p>
+            <p class="card-atk">@yuGioH.ATK</p>
+            <p class="card-def">@yuGioH.DEF</p>
+            <div class="card-stars">
+                <img style="@estiloStar1" class="stars star-1" src="img/card-template/star.png"/>
+                <img style="@estiloStar2" class="stars star-2" src="img/card-template/star.png"/>
+                <img style="@estiloStar3" class="stars star-3" src="img/card-template/star.png"/>
+                <img style="@estiloStar4" class="stars star-4" src="img/card-template/star.png"/>
+                <img style="@estiloStar5" class="stars star-5" src="img/card-template/star.png"/>
+                <img style="@estiloStar6" class="stars star-6" src="img/card-template/star.png"/>
+                <img style="@estiloStar7" class="stars star-7" src="img/card-template/star.png"/>
+                <img style="@estiloStar8" class="stars star-8" src="img/card-template/star.png"/>
+                <img style="@estiloStar9" class="stars star-9" src="img/card-template/star.png"/>
+                <img style="@estiloStar10" class="stars star-10" src="img/card-template/star.png" />
+                <img style="@estiloStar11" class="stars star-11" src="img/card-template/star.png" />
+                <img style="@estiloStar12" class="stars star-12" src="img/card-template/star.png" />
             </div>
-
-            <div class="d-block">
-                <label>Tipo:</label>
-                <input name="tipo_cadastro" type="text" maxlength="20" @bind=yuGioH.Tipo class="form-control" />
+            <div class="d-block desc-box">
+                @if (yuGioH.Description == null)
+                {
+                    <p class="card-desc">Descrição</p>
+                }
+                else
+                {
+                    <p class="card-desc">@yuGioH.Description</p>
+                } 
             </div>
-
-            <div class="d-block">
-                <label>Descrição:</label>
-                <textarea name="desc_cadastro" rows="3" maxlength="100" @bind=yuGioH.Description class="form-control"></textarea>
-            </div>
-
-            <div class="d-block">
-                <label>Level:</label>
-                <input name="lvl_cadastro" type="number" min="0" max="12" @bind=yuGioH.Level class="form-control"/>
-            </div>
-
-            <div class="d-block">
-                <label>Pontos de Defesa:</label>
-                <input name="def_cadastro" type="number" min="1" max="9999" @bind=yuGioH.DEF class="form-control" />
-            </div>
-
-            <div class="d-block">
-                <label>Pontos de Ataque:</label>
-                <input name="atk_cadastro" type="number" min="1" max="9999" @bind=yuGioH.ATK class="form-control" />
-            </div>
-
-            <br />
-
-            <div class="custom-file">
-                <InputImg Label="Imagem" OnSelectedImage="ImagemSelecionada" ImageURL="@imageURL"></InputImg>
-            </div>
-
-            <br />
-
-            <button @onclick=CadastrarCards class="btn btn-primary bt-cadastro"> Cadastrar </button>
 
         </div>
 
     </div>
-</form>
+    <div class="cardform d-inline-block">
+
+        <div class="d-block">
+            <label>Nome:</label>
+            <input name="name_cadastro" type="text" minlength="1" maxlength="36" @bind=yuGioH.Nome class="form-control" />
+        </div>
+
+        <div class="d-block">
+            <label>Tipo:</label>
+            <input name="tipo_cadastro" type="text" maxlength="20" @bind=yuGioH.Tipo class="form-control" />
+        </div>
+
+        <div class="d-block">
+            <label>Descrição:</label>
+            <textarea name="desc_cadastro" rows="3" maxlength="100" @bind=yuGioH.Description class="form-control"></textarea>
+        </div>
+
+        <div class="d-block">
+            <label>Level:</label>
+            <input name="lvl_cadastro" type="number" min="0" max="12" @bind=yuGioH.Level @oninput=VerificaLevel class="form-control"/>
+        </div>
+
+        <div class="d-block">
+            <label>Pontos de Defesa:</label>
+            <input name="def_cadastro" type="number" min="1" max="9999" maxlength="4" @bind=yuGioH.DEF class="form-control" />
+        </div>
+
+        <div class="d-block">
+            <label>Pontos de Ataque:</label>
+            <input name="atk_cadastro" type="number" min="1" max="9999" maxlength="4" @bind=yuGioH.ATK class="form-control" />
+        </div>
+
+        <br />
+
+        <div class="custom-file">
+            <InputImg Label="Imagem" OnSelectedImage="ImagemSelecionada" ImageURL="@imageURL"></InputImg>
+        </div>
+
+        <br />
+
+        <button @onclick=CadastrarCards class="btn btn-primary bt-cadastro"> Cadastrar </button>
+
+    </div>
+
+</div>
 
 @code {
     YuGioH yuGioH = new YuGioH();
-    string imageURL;
-    string imgB64;
+
+    string imageURL, imgB64;
+
+    int value;
+
+    string estiloStar1, estiloStar2, estiloStar3, 
+    estiloStar4, estiloStar5, estiloStar6, 
+    estiloStar7, estiloStar8, estiloStar9,
+    estiloStar10, estiloStar11, estiloStar12;
 
     private void ImagemSelecionada(string imageBase64)
     {
@@ -118,8 +123,129 @@
 
     public async void CadastrarCards()
     {
-        //Chama Api de Cadastro de Pokemon
-        await yugiRepo.Add(yuGioH);
-        Console.WriteLine("Card Adicionada ao Deck");
+        var imageData = await JS.InvokeAsync<string>("gerarImagemCarta");
+
+        try
+        {
+            
+            await yugiRepo.Add(yuGioH);
+            // O await foi executado com sucesso
+            Console.WriteLine("O await foi executado com sucesso");
+            await JS.InvokeAsync<string>("notifySuccess", "Carta criada com sucesso!");
+
+        }
+        catch (Exception ex)
+        {
+            // Ocorreu uma exceção durante a execução do await
+            Console.WriteLine($"Ocorreu uma exceção: {ex.Message}");
+            await JS.InvokeAsync<string>("notifyError", "Erro ao criar carta!");
+        }
+        
+
+    }
+
+    public void VerificaLevel(ChangeEventArgs e)
+    {
+        if(yuGioH.Level != null)
+        {
+
+            estiloStar1 = estiloStar2 = estiloStar3 =
+            estiloStar4 = estiloStar5 = estiloStar6 =
+            estiloStar7 = estiloStar8 = estiloStar9 =
+            estiloStar10 = estiloStar11 = estiloStar12 ="visibility: visible";
+
+            value = Convert.ToInt32(e.Value);
+
+            switch(value)
+            {
+                case 0:
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 =
+                    estiloStar7 = estiloStar8 = estiloStar9 =
+                    estiloStar10 = estiloStar11 = estiloStar12 = "visibility: hidden";
+                    break;
+
+                case 1:
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 =
+                    estiloStar7 = estiloStar8 = estiloStar9 =
+                    estiloStar10 = estiloStar11 = "visibility: hidden";
+                    break;
+
+                case 2:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 =
+                    estiloStar7 = estiloStar8 = estiloStar9 =
+                    estiloStar10 = "visibility: hidden";
+
+                    break;
+                case 3:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 =
+                    estiloStar7 = estiloStar8 = estiloStar9 = "visibility: hidden";
+
+                    break;
+                case 4:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 =
+                    estiloStar7 = estiloStar8 = "visibility: hidden";
+
+                    break;
+                case 5:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 =
+                    estiloStar7 = "visibility: hidden";
+
+                    break;
+                case 6:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 = "visibility: hidden";
+
+                    break;
+                case 7:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = "visibility: hidden";
+
+                    break;
+                case 8:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = "visibility: hidden";
+
+                    break;
+                case 9:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 = "visibility: hidden";
+
+                    break;
+
+                case 10:
+
+                    estiloStar1 = estiloStar2 = "visibility: hidden";
+
+                    break;
+
+                case 11:
+
+                    estiloStar1 =  "visibility: hidden";
+
+                    break;
+
+                case 12:
+
+                    estiloStar1 = estiloStar2 = estiloStar3 =
+                    estiloStar4 = estiloStar5 = estiloStar6 =
+                    estiloStar7 = estiloStar8 = estiloStar9 =
+                    estiloStar10 = estiloStar11 = estiloStar12 = "visibility: visible";
+
+                    break;
+            }
+        }
     }
 }
