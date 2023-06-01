@@ -4,18 +4,19 @@
     text-align: left;
     font-family: matrixFont;
     margin-right: 1rem;
-    margin-top: -20rem;
     color: black;
 }
 
 .card-template {
     width: 421px;
     height: auto;
+    position: relative;
+    top: -20.39rem;
 }
 
 .card-infos {
     position: relative;
-    top: -49.5rem;
+    top: -69.9rem;
 }
 
 .card-name {
@@ -75,7 +76,7 @@
     width: 328px;
     height: 326px;
     position: relative;
-    top: 27.3rem;
+    top: 6.8rem;
     left: 3rem;
     z-index: -10;
 }
