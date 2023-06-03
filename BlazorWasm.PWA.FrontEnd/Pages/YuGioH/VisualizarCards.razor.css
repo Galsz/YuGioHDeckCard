@@ -1,4 +1,5 @@
 ﻿.btn-voltar {
     position: absolute;
     left: 2rem;
+    z-index: 20;
 }
